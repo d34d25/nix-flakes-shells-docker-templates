@@ -17,26 +17,26 @@
 
     		devShells."${system}".default = pkgs.mkShell {
 
-        		packages = [
+        		packages = with pkgs; [
 
           			#my additions
-          			pkgs.raylib
-          			pkgs.gcc
-          			pkgs.gdb
-          			pkgs.python3
+          			raylib
+          			gcc
+          			gdb
+          			python3
 				#------------
 
-          			pkgs.libGL
+          			libGL
 
           			# X11 dependencies
-          			pkgs.libx11
-          			pkgs.libx11.dev
-          			pkgs.libxcursor
-          			pkgs.libxi
-          			pkgs.libxinerama
-          			pkgs.libxrandr
+          			libx11
+          			libx11.dev
+          			libxcursor
+          			libxi
+          			libxinerama
+          			libxrandr
 
-          			pkgs.emscripten
+          			emscripten
 
         		];
 
