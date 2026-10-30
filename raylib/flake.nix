@@ -1,4 +1,4 @@
-#from: https://github.com/raysan5/raylib/wiki/Working-on-GNU-Linux
+#from https://github.com/raysan5/raylib/wiki/Working-on-GNU-Linux
 
 {
 	description = "Raylib development environment";
@@ -7,15 +7,15 @@
 		nixpkgs.url = "nixpkgs/nixos-26.05";
 	};
 
-	outputs = {self, nixpkgs, ...}:
+	outputs = {self, nixpkgs, ...}: 
 	let
 		system = "x86_64-linux";
-    
+
 		pkgs = import nixpkgs {inherit system;};
-	in 
+	in
 	{
 		devShells."${system}".default = pkgs.mkShell {
-    
+	
 			packages = with pkgs; [
 		
 				#my additions
@@ -24,7 +24,7 @@
 				gdb
 				python3
 				gnumake
-				#------------
+				#-------------
 		
 				libGL
 
@@ -40,6 +40,7 @@
 				emscripten
 			];
 
+			# Audio dependencies
 			LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [pkgs.alsa-lib];
 		};
 	};
